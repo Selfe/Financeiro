@@ -1,0 +1,39 @@
+<!-- DO ARQUIVO PRINCIPAL.HTML -->
+
+<app-formulario (adicionar)="adicionarUsuario($event)"></app-formulario>
+>
+
+<!-- <app-tabela></app-tabela> -->
+
+<!--
+
+<p></p>
+<p>{{ "Nome  usuario: " + usuario.user }}</p>
+<p>{{ "Senha usuário> " + usuario.senha }}</p>
+ -->
+
+<hr />
+
+@if (situacaoParamentro === "falhaAcesso") {
+  <p>"Voce nao tem acesso ao sistema"</p>
+} @else {
+  <p>"Acesso Liberado ao Sistema"</p>
+}
+
+<!--Interpolacao com variaveis 
+<p>Ola {{ nome }}</p>
+<p>{{ "ola: " + nome }}</p>
+<p>{{`ola xxx ${nome}` }}</p>
+-->
+<!-- Interpolacao com expressães matematicas -->
+<!-- <p>{{ 5 + 5 }}</p> -->
+
+<!-- Interpolacao com funcoes e metodos -->
+<!-- referencio a funcao mesagem declarada no componente ts-->
+<!-- {{ mensagem() }}  -->
+
+<!-- Interpolacao com operadores ternario -->
+<!--  <p>{{ media >= 7 ? "aprovado" : "reprovado" }}</p>  -->
+
+<!-- Interpolacao com objetos -->
+<!-- meu objeto ser o usuario-->

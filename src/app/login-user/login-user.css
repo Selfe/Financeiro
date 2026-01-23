@@ -1,0 +1,160 @@
+form {
+  width: 50%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+input {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+input[type="button"] {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.c-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.c-fieldset--first {
+  margin-top: 0;
+}
+
+.c-fieldset--secondary {
+  margin-top: 30px;
+
+  @include media($small) {
+    margin-top: 0;
+  }
+}
+
+.c-fieldset__col-6 {
+  @include media($small) {
+    @include span-columns(6);
+  }
+}
+
+.c-fieldset__col-7 {
+  @include media($small) {
+    @include span-columns(7);
+  }
+}
+
+.c-fieldset__col-9 {
+  @include media($small) {
+    @include span-columns(9);
+  }
+}
+
+.c-fieldset__col-12 {
+  @include media($small) {
+    @include span-columns(12);
+  }
+}
+
+.c-tab-square-container {
+  display: flex;
+}
+
+.c-tab-square-container > .c-tab-square {
+  size: 50px, 50px;
+}
+
+.c-tabs-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.custom-radio-button__container {
+  margin-bottom: 1em;
+}
+
+.custom-radio-button__container input[type="radio"] {
+  display: none;
+}
+
+.custom-radio-button {
+  height: 110px;
+  box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 135px;
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  margin-right: 1em;
+}
+
+.svg-designer {
+  stroke: #979797;
+}
+
+.svg-developer {
+  fill: #979797;
+}
+
+.custom-radio-button h3 {
+  color: #979797;
+  font-weight: 500;
+  font-size: 1.375rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.custom-radio-button__container:has(
+    input[type="radio"]:checked + .custom-radio-button
+  ) {
+  font-weight: bold;
+}
+
+.custom-radio-button__container
+  input[type="radio"]:hover
+  + .custom-radio-button {
+  border: 2px solid #1e94d2;
+}
+
+.custom-radio-button__container
+  input[type="radio"]:checked
+  + .custom-radio-button {
+  border: 2px solid #1e94d2;
+}
+
+.custom-radio-button__container
+  input[type="radio"]:checked
+  + .custom-radio-button
+  h3 {
+  color: #1e94d2;
+}
+
+.custom-radio-button__container
+  input[type="radio"]:checked
+  + .custom-radio-button
+  .svg-designer {
+  stroke: #1e94d2;
+}
+
+.custom-radio-button__container
+  input[type="radio"]:checked
+  + .custom-radio-button
+  .svg-developer {
+  fill: #1e94d2;
+}
+
+.c-instruction-numbered-list {
+  counter-reset: section;
+  list-style: auto;
+  padding: 0 0 0 15px;
+}
+
+.c-instruction-numbered-list > li {
+  margin: 0 0 10px 0;
+}

@@ -1,0 +1,84 @@
+<!--
+Data bindings que temos disponiveis para uso
+{{}} - interpolacao;
+()   - Eventos;
+[]   - Propriedades;
+[()] - Two-Way
+-->
+
+<!-- <input type="text" name="" id="" /> -->
+
+<!-- --------------- exemplo de input dentro do formulario ---------------- --
+<form>
+  <input type="text" name="dados" id="" [(ngModel)]="dados" />
+  <-- visualiza os dados dentro da variavel dados --
+  <h1>{{ dados }}</h1>
+ 
+</form>
+ -->
+
+<form>
+  <div class="l-simple-page__container">
+    <form action="/login" method="post">
+      <input
+        type="hidden"
+        name="_csrf"
+        value="e8b9b655-6784-4c71-9b6d-fc5367ad9083"
+      />
+
+      <input
+        type="hidden"
+        name="_csrf"
+        value="e8b9b655-6784-4c71-9b6d-fc5367ad9083"
+      />
+
+      <input type="hidden" name="remember-me" value="on" />
+
+      <div class="c-simple-panel">
+        <img
+          src="/images/logo-algaworks-cores-e0c5c85e851164bce7d96556bf4a1a2b.png"
+          alt="IdSistemas"
+        />
+
+        <div class="c-simple-panel__message">Por favor, faça o login.</div>
+
+        <div class="c-simple-panel__box">
+          <div class="c-labeled-input">
+            <input
+              type="text"
+              class="c-input c-input--big"
+              placeholder="Seu e-mail"
+              value=""
+              name="username"
+              autofocus
+            />
+          </div>
+
+          <div class="c-labeled-input">
+            <input
+              type="password"
+              class="c-input c-input--big"
+              placeholder="Sua senha"
+              name="password"
+            />
+          </div>
+
+          <div>
+            <button type="submit" class="c-button c-button--form-login">
+              Entrar
+            </button>
+          </div>
+
+          <div style="margin-top: 15px">
+            <a href="/esqueceu-senha">Esqueceu a senha?</a>
+          </div>
+        </div>
+        <!--
+          <div style="margin-top: 15px">
+            <a href="https://www.algaworks.com">Voltar para o site</a>
+          </div>
+          -->
+      </div>
+    </form>
+  </div>
+</form>

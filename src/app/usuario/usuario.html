@@ -1,0 +1,129 @@
+<form [formGroup]="formularioUsuario">
+  <div class="modelo-container">
+    <mat-form-field class="larguraCampos">
+      <mat-label>Codigo</mat-label>
+      <input matInput formControlName="id" class="ocultarId" />
+    </mat-form-field>
+  </div>
+
+  <div class="modelo-container">
+    <mat-form-field class="larguraCampos">
+      <mat-label> Nome</mat-label>
+      <input
+        matInput
+        formControlName="nome"
+        placeholder="informe o nome do usuário"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="modelo-container">
+    <mat-form-field class="larguraCampos">
+      <mat-label>Funcao</mat-label>
+      <input
+        matInput
+        formControlName="funcao"
+        placeholder="informe a função do usuário"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="modelo-container">
+    <mat-form-field class="larguraCampos">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="informe o Email do usuário"
+        [formControl]="email"
+        (blur)="updateErrorMessage()"
+        required
+      />
+      @if (email.invalid) {
+        <mat-error>{{ errorMessage() }}</mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <div class="modelo-container">
+    <mat-form-field class="larguraCampos">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        formControlName="senha"
+        [type]="hide() ? 'Senha' : 'text'"
+      />
+      <button
+        matIconButton
+        matSuffix
+        (click)="clickEvent($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide()"
+      >
+        <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  @if (btnCadastrar) {
+    <button matFab extended="" class="espacobotao" (click)="cadastrar()">
+      <mat-icon>save</mat-icon>Cadastrar
+    </button>
+  } @else {
+    <button matFab extended="" class="espacobotao" (click)="alterar()">
+      <mat-icon>home</mat-icon>Alterar
+    </button>
+    <button matFab extended="" class="espacobotao" (click)="remover()">
+      <mat-icon>delete</mat-icon>Excluir
+    </button>
+    <button matFab extended="" class="espacobotao" (click)="cancelar()">
+      <mat-icon>cancel</mat-icon>Cancelar
+    </button>
+  }
+</form>
+
+<table mat-table [dataSource]="vetor" class="mat-elevation-z8">
+  <!-- Id -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let usuarios">{{ usuarios.id }}</td>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>NOME</th>
+    <td mat-cell *matCellDef="let usuarios">{{ usuarios.nome }}</td>
+  </ng-container>
+
+  <!-- funcao -->
+  <ng-container matColumnDef="funcao">
+    <th mat-header-cell *matHeaderCellDef>FUNCAO</th>
+    <td mat-cell *matCellDef="let usuarios">{{ usuarios.funcao }}</td>
+  </ng-container>
+
+  <!-- email -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>EMAIL</th>
+    <td mat-cell *matCellDef="let usuarios">{{ usuarios.email }}</td>
+  </ng-container>
+
+  <!-- senha -->
+  <ng-container matColumnDef="senha">
+    <th mat-header-cell *matHeaderCellDef>EMAIL</th>
+    <td mat-cell *matCellDef="let usuarios">{{ usuarios.senha }}</td>
+  </ng-container>
+
+  <!-- Selecionar -->
+  <ng-container matColumnDef="selecionar">
+    <th mat-header-cell *matHeaderCellDef>SELECIONAR</th>
+    <td mat-cell *matCellDef="let usuarios">
+      <button matButton="elevated" (click)="selecionarUsuario(usuarios.id)">
+        Selecionar
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Nome das colunas -->
+  <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+  <tr mat-row *matRowDef="let row; columns: colunas"></tr>
+</table>
